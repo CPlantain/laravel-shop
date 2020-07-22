@@ -12,7 +12,7 @@ class ProductsController extends Controller
 {
     public function index(ProductsFilterRequest $request)
     {
-        $products = Product::withFilters($request->all())->paginate(6);
+        $products = Product::filteredBy($request->all())->paginate(6);
 
     	return view('products.index', compact('products'));
     }

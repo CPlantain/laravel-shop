@@ -37,7 +37,7 @@ class Product extends Model
         return $this->price;
     }
 
-    public static function withFilters($params)
+    public function scopeFilteredBy($query, $params)
     {
         $query = Product::with('category');
 
@@ -51,7 +51,7 @@ class Product extends Model
 
         foreach (self::tags() as $input) {
             if (isset($params[$input]) && !empty($params[$input])) {
-                $query->where($input, 1);
+                $query->$input();
             }
         }
 
