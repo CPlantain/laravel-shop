@@ -1,1 +1,1 @@
-Laravel online shop project!
+Laravel online shop project! Work ongoing.
